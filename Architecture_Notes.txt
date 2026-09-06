@@ -1,0 +1,22 @@
+NJ Car Meet Event - CSS Architecture Notes
+
+Layer / source order strategy
+I used this order: reset, base, layout, components, utilities, states, and overrides. The order keeps broad styles early and more specific interface behavior later. I used low-specificity class selectors and :where() for focus styles so I do not have to fight the cascade with long selectors or !important in normal screen styles.
+
+Token decisions
+The :root section contains reusable values for color, typography, spacing, shape, layout width, and focus. The names describe purpose instead of appearance, such as --color-brand, --color-border, --space-5, and --focus-ring. The event-card component also has local variables (--card-accent and --card-surface) so a featured card can change its appearance without duplicating the whole component.
+
+Naming approach
+I used clear class names based on the purpose of the pattern. Related parts use names such as .site-header__inner, .site-nav__link, .event-card, and .page-heading__eyebrow. Utility classes start with u- so they are easy to recognize.
+
+Components, utilities, and states
+The package includes repeated patterns for navigation, buttons, event cards, callouts, page headings, media blocks, schedule tables, status labels, resource lists, and the footer. Utilities include visually hidden text, text centering, small vertical stacks, and a no-print helper. States include hover, focus-visible, current page through aria-current, and a pending status for event information that is not final.
+
+Responsive approach
+The default layout is narrow/mobile-first and uses one column. At 48rem, supporting content and cards can use two columns. At 64rem, the hero and card grid can use wider multi-column layouts. This follows the Module 1 wireframes: one column on phone, up to two columns on tablet, and multiple columns on desktop while keeping a maximum content width.
+
+Print support
+The print block is mainly for the Schedule page. It removes navigation, footer, buttons, and decorative media; removes extra backgrounds; keeps cards together when possible; and makes the schedule table readable on paper or PDF.
+
+Browser and preview checks
+I reviewed the package at a narrow 390px preview and a wide 1280px preview, checked the responsive rules for the one-column, two-column, and three-column layouts, and rendered the Schedule page with print media to confirm that the print block removes navigation and decorative content. I also checked the HTML/CSS structure for current-page navigation, focus-visible styles, the pending-status treatment, and working internal page links. Before publishing the final site, I will also open the same pages in current Chrome, Firefox, and Edge as listed in my Module 1 acceptance criteria.

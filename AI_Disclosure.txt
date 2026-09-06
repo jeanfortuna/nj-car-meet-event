@@ -1,0 +1,3 @@
+AI Disclosure
+
+AI was used as a support tool to help review CSS organization, token naming, and possible refactoring options. I reviewed the suggestions, made the final decisions for my project, and checked the CSS behavior at different viewport sizes. The project concept, planning, content, and final implementation decisions are my own.

@@ -1,0 +1,41 @@
+NJ Car Meet Event - Refactoring Evidence
+
+1. Repeated values
+Before approach:
+  Individual components could repeat values like #8c1d40, #d7d9dd, 1rem, 1.5rem, and the same border radius.
+
+After approach:
+  Repeated decisions are stored in :root custom properties such as --color-brand, --color-border, --space-4, --space-5, --radius-sm, and --radius-md.
+
+Why this is better:
+  A shared value can be changed in one place instead of being updated in several rules.
+
+2. Component duplication
+Before approach:
+  Separate cards for schedule, activities, and visitor information could each repeat the same padding, border, background, radius, and shadow.
+
+After approach:
+  They use one .event-card component. A featured version changes local component variables instead of copying the entire card rule.
+
+Why this is better:
+  The component is reusable across Home, About, FAQ, and Schedule content.
+
+3. Selector specificity
+Before approach:
+  A selector could become long, for example .site-header nav ul li a.current or .page .section .card a.
+
+After approach:
+  The package uses classes such as .site-nav__link and .event-card, plus [aria-current="page"] for the current navigation state. The global focus rule uses :where(a, button):focus-visible to keep specificity low.
+
+Why this is better:
+  The CSS is easier to override intentionally and is less likely to create specificity conflicts later.
+
+4. Naming clarity
+Before approach:
+  Generic names like .box, .red, or .left could describe appearance instead of purpose.
+
+After approach:
+  Names describe the role of the pattern, such as .event-card, .callout, .schedule-table, .status, and .page-heading.
+
+Why this is better:
+  Another person can understand what a class is for without opening every rule.
