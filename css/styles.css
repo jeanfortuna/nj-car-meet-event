@@ -1,4 +1,4 @@
-/* NJ Car Meet Event - CSS Architecture Package */
+/* NJ Car Meet Event - Responsive Layout Extension */
 
 @layer reset, base, layout, components, utilities, states, overrides;
 
@@ -29,7 +29,8 @@
 
   img {
     display: block;
-    max-width: 100%;
+    max-inline-size: 100%;
+    block-size: auto;
   }
 }
 
@@ -67,6 +68,7 @@
     --space-6: 2rem;
     --space-7: 3rem;
     --space-8: 4rem;
+    --section-space: clamp(2.5rem, 6vw, 4.5rem);
 
     /* Shape and layout tokens */
     --border-thin: 1px solid var(--color-border);
@@ -81,7 +83,7 @@
   }
 
   body {
-    min-height: 100vh;
+    min-block-size: 100vh;
     background: var(--color-surface);
     color: var(--color-text);
     font-family: var(--font-body);
@@ -110,7 +112,7 @@
   }
 
   p {
-    max-width: var(--measure);
+    max-inline-size: var(--measure);
   }
 
   a {
@@ -125,12 +127,12 @@
 
 @layer layout {
   .container {
-    width: min(100% - 2rem, var(--content-max));
+    inline-size: min(100% - 2rem, var(--content-max));
     margin-inline: auto;
   }
 
   .site-header {
-    border-bottom: var(--border-thin);
+    border-block-end: var(--border-thin);
     background: var(--color-surface);
   }
 
@@ -149,7 +151,7 @@
   }
 
   .hero {
-    padding-block: var(--space-7);
+    padding-block: var(--section-space);
     background: var(--color-surface-soft);
   }
 
@@ -159,11 +161,11 @@
   }
 
   .section {
-    padding-block: var(--space-7);
+    padding-block: var(--section-space);
   }
 
   .section + .section {
-    border-top: var(--border-thin);
+    border-block-start: var(--border-thin);
   }
 
   .grid {
@@ -171,47 +173,37 @@
     gap: var(--space-5);
   }
 
+  /* Intrinsic card layout: columns appear only when each card has enough room. */
   .grid--cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
   }
 
+  /* Second meaningful grid: content column stays flexible and never gets too narrow. */
   .grid--two {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
   }
 
   .site-footer {
-    margin-top: var(--space-7);
+    margin-block-start: var(--space-7);
     padding-block: var(--space-6);
     background: var(--color-text);
     color: var(--color-surface);
   }
 
+  /* Content-driven breakpoint: navigation fits comfortably on one line here. */
   @media (min-width: 48rem) {
     .site-header__inner {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
     }
-
-    .hero__grid,
-    .grid--two {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      align-items: start;
-    }
-
-    .grid--cards {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
   }
 
+  /* Content-driven breakpoint: hero copy and event details both have useful reading width. */
   @media (min-width: 64rem) {
     .hero__grid {
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: minmax(0, 2fr) fit-content(24rem);
       align-items: center;
-    }
-
-    .grid--cards {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 }
@@ -226,7 +218,8 @@
 
   .site-nav__link {
     display: inline-block;
-    padding: var(--space-2) var(--space-3);
+    padding-block: var(--space-2);
+    padding-inline: var(--space-3);
     border-radius: var(--radius-sm);
     color: var(--color-text);
     font-weight: 700;
@@ -235,7 +228,8 @@
 
   .button {
     display: inline-block;
-    padding: 0.75rem 1rem;
+    padding-block: 0.75rem;
+    padding-inline: 1rem;
     border: 1px solid var(--color-brand);
     border-radius: var(--radius-sm);
     background: var(--color-brand);
@@ -252,13 +246,12 @@
   }
 
   .event-card {
-    /* Component-specific scope */
     --card-accent: var(--color-brand);
     --card-surface: var(--color-surface);
 
     padding: var(--space-5);
     border: var(--border-thin);
-    border-top: 0.3rem solid var(--card-accent);
+    border-block-start: 0.3rem solid var(--card-accent);
     border-radius: var(--radius-md);
     background: var(--card-surface);
     box-shadow: var(--shadow-card);
@@ -270,12 +263,38 @@
   }
 
   .event-card > * + * {
-    margin-top: var(--space-3);
+    margin-block-start: var(--space-3);
+  }
+
+  /* This wrapper makes the event-details component respond to its own width. */
+  .event-details-shell {
+    container-type: inline-size;
+  }
+
+  .event-details {
+    display: grid;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    border-inline-start: 0.35rem solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    background: #fff8df;
+  }
+
+  .event-details__facts {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  @container (min-width: 26rem) {
+    .event-details {
+      grid-template-columns: minmax(0, 1fr) fit-content(18rem);
+      align-items: start;
+    }
   }
 
   .callout {
     padding: var(--space-5);
-    border-left: 0.35rem solid var(--color-accent);
+    border-inline-start: 0.35rem solid var(--color-accent);
     border-radius: var(--radius-sm);
     background: #fff8df;
   }
@@ -283,7 +302,7 @@
   .page-heading {
     display: grid;
     gap: var(--space-3);
-    margin-bottom: var(--space-6);
+    margin-block-end: var(--space-6);
   }
 
   .page-heading__eyebrow {
@@ -303,7 +322,7 @@
 
   .media-block__placeholder {
     display: grid;
-    min-height: 13rem;
+    min-block-size: 13rem;
     place-items: center;
     padding: var(--space-5);
     color: var(--color-muted);
@@ -312,15 +331,16 @@
   }
 
   .schedule-table {
-    width: 100%;
+    inline-size: 100%;
     border-collapse: collapse;
   }
 
   .schedule-table th,
   .schedule-table td {
-    padding: var(--space-3) var(--space-4);
-    border-bottom: var(--border-thin);
-    text-align: left;
+    padding-block: var(--space-3);
+    padding-inline: var(--space-4);
+    border-block-end: var(--border-thin);
+    text-align: start;
     vertical-align: top;
   }
 
@@ -331,12 +351,13 @@
   .resource-list {
     display: grid;
     gap: var(--space-3);
-    padding-left: 1.25rem;
+    padding-inline-start: 1.25rem;
   }
 
   .status {
     display: inline-block;
-    padding: var(--space-1) var(--space-2);
+    padding-block: var(--space-1);
+    padding-inline: var(--space-2);
     border-radius: var(--radius-sm);
     font-size: var(--text-sm);
     font-weight: 800;
@@ -349,6 +370,24 @@
 
   .site-footer a {
     color: var(--color-surface);
+  }
+}
+
+/*
+  Progressive enhancement for aligned card rows.
+  Without subgrid, the normal event-card layout above is still fully usable.
+*/
+@supports (grid-template-rows: subgrid) {
+  @layer components {
+    .grid--cards > .event-card {
+      display: grid;
+      grid-row: span 3;
+      grid-template-rows: subgrid;
+    }
+
+    .grid--cards > .event-card > * + * {
+      margin-block-start: 0;
+    }
   }
 }
 
@@ -367,7 +406,7 @@
   }
 
   .u-stack-sm > * + * {
-    margin-top: var(--space-3);
+    margin-block-start: var(--space-3);
   }
 
   .u-no-print {
@@ -406,6 +445,13 @@
   /* Intentional one-off exceptions belong here. */
 }
 
+/* Preference query: users who reduce motion should not get smooth scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 @media print {
   @page {
     margin: 0.6in;
@@ -426,8 +472,8 @@
   }
 
   .container {
-    width: 100%;
-    max-width: none;
+    inline-size: 100%;
+    max-inline-size: none;
   }
 
   .hero,
@@ -437,7 +483,8 @@
   }
 
   .event-card,
-  .callout {
+  .callout,
+  .event-details {
     break-inside: avoid;
     box-shadow: none;
   }
@@ -457,3 +504,35 @@
     font-size: 9pt;
   }
 }
+
+
+/* Module 4 media optimization */
+.hero-media {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+}
+
+.hero-media img,
+.media-block img {
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.hero-media img {
+  aspect-ratio: 883 / 660;
+  object-fit: cover;
+}
+
+.media-block img {
+  object-fit: cover;
+}
+
+.media-block figcaption {
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+/* The same photo composition remains useful at narrow and wide widths,
+   so separate art-direction crops are not needed for this build. */

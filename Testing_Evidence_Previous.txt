@@ -1,0 +1,38 @@
+NJ Car Meet Event - Testing Evidence
+
+Browser testing was completed before the final submission.
+
+1. Narrow viewport
+Tested at 375px wide.
+Result: PASS. Navigation wrapped without leaving the layout, the hero stacked, Event details moved below the main hero content, text remained readable, and no layout overlap was observed.
+Screenshot: testing-evidence/02-narrow-375px.png
+
+2. Medium viewport
+Tested at 768px wide.
+Result: PASS. Navigation fit in one row, Event details used the available space, and the Quick information grid added columns as space became available.
+Screenshot: testing-evidence/03-medium-768px.png
+
+3. Wide viewport
+Tested at desktop width.
+Result: PASS. The hero used the wider two-column layout, the three Quick information cards aligned across the available space, and the page remained constrained instead of stretching the content too far.
+Screenshot: testing-evidence/01-wide.png
+
+4. 200% zoom / reflow
+Tested with Chrome browser zoom set to 200%.
+Result: PASS. Text and controls remained readable, the hero content reflowed, and no important content was clipped or overlapped.
+Screenshot: testing-evidence/04-zoom-200-percent.png
+
+5. Keyboard focus
+Tested by moving through interactive elements with the Tab key.
+Result: PASS. A visible blue focus outline appeared on navigation links and moved with keyboard focus.
+Screenshot: testing-evidence/05-keyboard-focus.png
+
+6. Reduced-motion preference
+Tested in Chrome DevTools Rendering with prefers-reduced-motion: reduce enabled.
+Result: PASS. The CSS preference condition was activated as intended; the reduced-motion rule disables smooth scrolling.
+Screenshot: testing-evidence/06-reduced-motion.png
+
+7. Feature-query / fallback
+Verified in css/styles.css.
+Result: PASS. The default event-card layout is defined before the feature query. @supports (grid-template-rows: subgrid) only enhances alignment when subgrid is supported, so the cards and their links remain usable without subgrid.
+Evidence: css/styles.css and Layout_Notes.txt

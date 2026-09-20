@@ -1,17 +1,27 @@
-NJ Car Meet Event - CSS Architecture Package
+NJ Car Meet Event - Media and Typography Optimization Build
 
-Main submission files:
-- css/styles.css
-- Architecture_Notes.txt
-- Refactoring_Evidence.txt
-- AI_Disclosure.txt
-
-Preview / testing files included:
+Main files
 - index.html
 - about.html
 - schedule.html
 - gallery.html
 - faq.html
 - contact.html
+- css/styles.css
 
-Open index.html in a browser to review the package. The HTML pages are included so the CSS architecture, states, responsive layout, and print styles can be tested. This is an architecture package, not the final visual design.
+Module 4 documentation
+- Asset_Inventory.txt
+- Optimization_Evidence.txt
+- AI_Disclosure.txt
+
+Supporting documentation
+- Architecture_Notes.txt
+- Layout_Notes.txt
+- Refactoring_Evidence.txt
+
+Images
+- assets/images/ contains optimized responsive WebP variants.
+
+Submission
+Repository link: add current GitHub repository link in Canvas.
+Published preview: add current GitHub Pages link in Canvas.

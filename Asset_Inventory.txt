@@ -1,0 +1,36 @@
+NJ Car Meet Event - Asset Inventory
+
+Images
+Source/provenance: Personal photographs provided by the student for this capstone. The student owns the photographs.
+Permission/license: Student-owned; approved for use in this course project.
+Original files: PNG screenshots/exports supplied for the project.
+Current delivery format: WebP, quality 82.
+
+Optimized image files
+- mustang-front-320.webp: 320 x 427, WebP, 19.5 KB
+- mustang-front-495.webp: 495 x 661, WebP, 38.5 KB
+- mustang-wide-480.webp: 480 x 359, WebP, 36.3 KB
+- mustang-wide-883.webp: 883 x 660, WebP, 97.0 KB
+- mustang-low-angle-320.webp: 320 x 410, WebP, 33.6 KB
+- mustang-low-angle-520.webp: 520 x 667, WebP, 64.4 KB
+
+Responsive delivery
+- Home hero: mustang-wide uses 480w and 883w variants with srcset and sizes.
+- Gallery image 1: mustang-front uses 320w and 495w variants.
+- Gallery image 2: mustang-wide uses 480w and 883w variants.
+- Gallery image 3: mustang-low-angle uses 320w and 520w variants.
+- Every real image includes intrinsic width and height to reserve layout space.
+- Gallery images use loading="lazy" and decoding="async".
+- The hero image is above the fold and uses fetchpriority="high" instead of lazy loading.
+
+Art direction
+The same composition remains understandable at narrow and wide sizes, so separate picture/source crops are not needed. Responsive resolution switching is enough for this build.
+
+Accessibility
+Each photograph has alt text describing the useful visible content. Captions add short context without replacing the alt text.
+
+SVG / audio / video / embeds
+No SVG, audio, video, animation, iframe, or external media embed is used in this capstone build, so caption, transcript, embed-title, and media-control requirements are not applicable.
+
+Fonts
+The site uses Arial, Helvetica, sans-serif. These are system/fallback fonts, so there is no external font file, font license, or web-font loading request.

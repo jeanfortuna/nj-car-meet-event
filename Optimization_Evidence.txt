@@ -1,0 +1,60 @@
+NJ Car Meet Event - Media and Typography Optimization Evidence
+
+Responsive images
+I converted the three project photographs to WebP and made smaller responsive variants. The HTML uses srcset and sizes so the browser can choose an appropriate file instead of always loading the largest image.
+
+Image dimensions and layout stability
+Every image has width and height attributes. The hero also has an aspect-ratio rule. This reserves space before the image finishes loading and helps reduce layout shift.
+
+Image loading
+Gallery images use loading="lazy" and decoding="async". The home hero image is visible early, so it is not lazy loaded and uses fetchpriority="high".
+
+Art direction
+I kept the same compositions at different viewport sizes because the car remains understandable without a separate crop. I documented this decision instead of adding picture elements that were not needed.
+
+Alt text
+The alt text describes the car and the view shown in each photograph. I avoided using file names as alt text.
+
+Typography
+The CSS uses Arial, Helvetica, sans-serif as a fallback stack. Type size, line height, measure, and spacing are stored in tokens. clamp() is used for the largest heading sizes and section spacing. No web fonts are loaded, so there is no font-download layout shift.
+
+Testing Evidence
+
+1. Narrow viewport
+PASS. The existing responsive layout test at 375px showed that navigation wraps, content remains readable, and the layout does not overlap.
+
+2. Medium viewport
+PASS. The existing 768px test showed that the layout uses the available space and adds columns when there is enough room.
+
+3. Wide viewport
+PASS. The desktop layout keeps the content constrained and allows the cards and media to use the available width.
+
+4. Gallery with real images
+PASS. All three personal photographs loaded correctly in the Gallery. The images stayed inside their cards and kept their proportions.
+
+5. 200% zoom / reflow
+PASS. The Gallery was checked again at 200% zoom after the real images were added. Navigation wrapped, text stayed readable, the image remained inside the viewport, and no important content overlapped or was clipped.
+
+6. Slow network
+PASS. The Gallery was reloaded in Chrome DevTools with Slow 4G selected. The WebP images loaded successfully and the reserved image dimensions helped keep the layout stable while media loaded.
+
+7. Image format and file-size check
+PASS. Chrome DevTools Network confirmed that the Gallery requested WebP files. The displayed sizes were approximately:
+- mustang-wide-480.webp: 37.1 kB
+- mustang-front-495.webp: 39.4 kB
+- mustang-low-angle-520.webp: 66.0 kB
+
+8. Keyboard focus
+PASS. The earlier keyboard test showed a visible focus outline while moving through interactive elements with the Tab key.
+
+9. Reduced motion
+PASS. prefers-reduced-motion: reduce was tested in Chrome DevTools. The CSS rule disables smooth scrolling when that preference is active.
+
+10. Feature-query fallback
+PASS. The default card layout works without subgrid. The @supports rule only improves alignment when subgrid is supported.
+
+Media not used
+This build does not use audio, video, animation, SVG, iframe, or external embeds. Captions, transcripts, embed titles, and media controls are not applicable to this capstone build.
+
+AI Disclosure
+I only used AI to help check that everything was working correctly and that I met the assignment requirements. The work and final decisions are my own.

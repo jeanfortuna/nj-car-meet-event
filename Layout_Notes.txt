@@ -1,0 +1,27 @@
+NJ Car Meet Event - Responsive Layout Notes
+
+Responsive foundation
+I kept the Module 2 CSS architecture and extended it instead of replacing it. The site still uses the same layers, tokens, components, utilities, and states. The main wrapper now uses logical sizing with inline-size and margin-inline. Section spacing and heading sizes use clamp() so they can scale without many breakpoints. I also changed several physical properties to logical properties such as padding-inline, border-block-end, border-inline-start, and margin-block.
+
+Grid layouts
+The card grid uses an intrinsic pattern: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)). This lets the number of columns change based on the room available instead of forcing a specific device width. The two-column content pattern uses repeat(auto-fit, minmax(min(100%, 22rem), 1fr)). The hero uses Grid at the wider breakpoint with minmax() for the main content and fit-content() for the event-details area.
+
+Subgrid and fallback
+The home-page card grid uses subgrid when the browser supports it so repeated card content can line up more consistently. I placed this inside @supports (grid-template-rows: subgrid). If subgrid is not supported, the normal event-card layout still works, so the fallback does not block any content or links.
+
+Container query
+The event-details component in the hero has its own query container using container-type: inline-size. Its default layout is stacked. At 26rem of container width, the content switches to a two-column layout. I used a container query because the component should respond to the room it actually receives inside the hero, not only to the full browser width.
+
+Content-driven breakpoints
+The 48rem breakpoint is for the site header. Below that point, the logo and six navigation links need the flexible wrapped layout. Once there is enough room for them to sit comfortably on one line, the header changes to a row.
+
+The 64rem breakpoint is for the hero. At smaller widths, the event introduction and event-details component are easier to read stacked. At 64rem, both areas have enough useful reading width to sit side by side. These choices match the planning goal of keeping event date, location, schedule, FAQ, and visitor information easy to scan on phone, tablet, and desktop.
+
+Preference query
+The site uses prefers-reduced-motion: reduce. When that preference is active, smooth scrolling is turned off.
+
+Feature query
+The @supports rule checks for subgrid. Browsers without subgrid keep the original event-card layout, which is the fallback.
+
+Testing targets
+Final testing should include a narrow viewport around 390px, a medium viewport around 768px, and a wide viewport around 1280px. It should also include 200% zoom/reflow, keyboard Tab focus, reduced-motion preference, and the subgrid fallback check.
