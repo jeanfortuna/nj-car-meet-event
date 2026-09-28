@@ -415,6 +415,23 @@
 }
 
 @layer states {
+  .skip-link {
+    position: fixed;
+    inset-block-start: var(--space-3);
+    inset-inline-start: var(--space-3);
+    z-index: 1000;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-brand-strong);
+    font-weight: 700;
+    transform: translateY(-200%);
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
+  }
+
   :where(a, button):focus-visible {
     outline: var(--focus-ring);
     outline-offset: var(--focus-offset);

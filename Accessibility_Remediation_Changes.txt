@@ -1,0 +1,9 @@
+Module 5 accessibility remediation changes
+
+1. Added a "Skip to main content" link to all six pages and added id="main-content" to each main landmark. The link becomes visible when it receives keyboard focus.
+2. Added the caption "NJ Car Meet event schedule" to the Schedule table so the table has a programmatic description/name.
+3. Added scope="col" to the Time, Activity, and Status header cells to make their column relationships explicit.
+
+Manual retesting confirmed the skip link appears on the first Tab and activates with Enter. The Schedule table was also sampled in the Chrome Accessibility Tree, where Time, Activity, and Status were exposed as column headers. Lighthouse Accessibility remained 100 after remediation.
+
+Final verification also corrected the Home main landmark so its skip link target uses id="main-content" consistently with the other pages.
