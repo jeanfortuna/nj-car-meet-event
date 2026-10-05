@@ -1,0 +1,18 @@
+Module 6 Discoverability Implementation Notes
+
+Implemented on the current Module 5 capstone:
+- Unique page titles retained for all six pages.
+- Added a page-specific meta description to all six pages.
+- Added an absolute canonical URL to all six pages using the published GitHub Pages site.
+- Existing semantic headings, skip links, descriptive internal links, image alt text, dimensions, srcset, and nearby captions/context were retained.
+- Added Open Graph metadata to the Home page: title, description, URL, type, image, image dimensions, and image alt.
+- Added WebPage JSON-LD to Home. WebPage was selected instead of Event because the visible site says the date and venue are still to be confirmed.
+- Added robots.txt that allows crawling and points to sitemap.xml.
+- Added sitemap.xml listing the six capstone pages.
+
+Validation still required after upload/publishing:
+- Validate the Home JSON-LD with Schema.org Validator.
+- Inspect the published page source to confirm canonical and Open Graph absolute URLs resolve correctly.
+- Confirm robots.txt and sitemap.xml are reachable on the published site.
+
+No ranking guarantee is claimed. Metadata and structured data can support interpretation and previews, but do not guarantee ranking, traffic, indexing, rich results, or engagement.
