@@ -1,0 +1,33 @@
+NJ CAR MEET EVENT — RESPONSIVE WIREFRAME ANNOTATIONS
+
+Purpose
+These are textual layout annotations for the responsive capstone. They document the intended composition and are not presented as original hand-drawn wireframe screenshots.
+
+MOBILE / NARROW VIEW (representative target: 375 px wide)
+- Keep the site identity and six navigation destinations available; allow the navigation to wrap when necessary.
+- Use a single-column main layout so the page introduction, event details and cards remain readable without horizontal scrolling.
+- Place the primary “View schedule” action near the introduction.
+- Keep vehicle images inside their content width and preserve their proportions.
+- Stack supporting cards and sections vertically; maintain readable spacing and visible keyboard focus.
+
+TABLET / MEDIUM VIEW (representative target: 768 px wide)
+- Keep the page content within a centered maximum width.
+- Allow card grids and supporting information to use additional columns when there is enough room.
+- Keep the header/navigation legible and avoid squeezing text or controls.
+- Keep the hero stacked when the available content width is not sufficient for two comfortable columns.
+
+DESKTOP / WIDE VIEW (representative target: 1044–1280 px wide)
+- Center the content within a maximum-width wrapper instead of stretching paragraphs across the screen.
+- Place the hero introduction and event-details area side by side when there is sufficient width.
+- Use multi-column cards for quick information and supporting content.
+- Keep navigation, headings, buttons, cards and image alignment consistent across pages.
+
+SHARED STATES AND OTHER VIEWS
+- Show a visible focus indicator for keyboard users and provide a “Skip to main content” link.
+- Identify the current page in navigation.
+- Respect prefers-reduced-motion and disable smooth scrolling when that preference is active.
+- Provide print styling for the Schedule page by removing navigation and decorative elements while preserving useful event information.
+- At 200% browser zoom, content should remain readable and controls/content should not be clipped or overlap.
+
+RELATION TO EVIDENCE
+The testing-evidence folder contains responsive screenshots at narrow, medium and wide widths, a 200% zoom screenshot, keyboard-focus and reduced-motion screenshots, and gallery/network screenshots. The Module 7 Release Sprint PDF contains the release-stage screenshots and the documented test results. These annotations explain the layout intent; the screenshots show the implemented layout.

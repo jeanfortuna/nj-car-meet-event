@@ -1,0 +1,11 @@
+NJ CAR MEET EVENT - MODULE 7 TECHNICAL DEFENSE
+
+I built this capstone as a multi-page HTML and CSS website for a local car-meet event concept. The intended audience is people who want to find event information before attending. I organized the site into Home, About, Schedule, Gallery, FAQ, and Contact pages so the main information is easy to find. The event date and venue remain marked as to be confirmed because they have not been verified.
+
+For the implementation, I used semantic HTML and shared CSS patterns for the navigation, buttons, headings, cards, tables, and footer. I kept the layout mobile-first and used responsive rules to change the composition as more screen width becomes available. I also included responsive WebP image variants, metadata, sitemap.xml, robots.txt, visible keyboard focus, a skip link, reduced-motion support, and print styles for the Schedule page.
+
+I tested representative pages and styles using the evidence included in this package and the separate Focused Release Sprint report. The documented checks include HTML validation for Home and Schedule, manual navigation and content-link checks, responsive views, 200% zoom, keyboard focus, and Lighthouse. The captured final Lighthouse run scored 100 in Performance, Accessibility, Best Practices, and SEO, although Lighthouse results can vary by environment.
+
+The release is not represented as perfect. The W3C CSS Validator still reports two container-query-related errors and ten warnings. Two console messages were observed but their source was not identified, and Firefox and Edge were not included in the documented release pass. I documented these as limitations instead of claiming they were fixed.
+
+AI assistance was used only to help organize documentation and review grammar and wording. I reviewed the project evidence and made the final implementation and release decisions. The repository and published URL are listed in README_Submission.txt; changes in this ZIP do not publish themselves, so the repository must be updated separately if the final files differ.

@@ -1,0 +1,47 @@
+NJ CAR MEET EVENT — ACCEPTANCE CRITERIA AND VERIFICATION STATUS
+
+1. Page scope and navigation
+- The published site contains Home, About, Schedule, Gallery, FAQ and Contact pages.
+- The primary navigation links to the six page destinations.
+- At least five Home-page content/action links have meaningful labels and valid destinations.
+Status: The Module 7 Release Sprint report documents the navigation and content-link checks. The Home-page “Learn more” label was changed to “Learn more about the NJ Car Meet Event.”
+
+2. HTML and CSS structure
+- HTML uses meaningful page structure and page-specific titles/content.
+- Shared CSS uses reusable tokens and components rather than duplicating the same styles unnecessarily.
+- Navigation and interactive elements provide visible focus styles.
+Status: The release report records Nu HTML Checker results of 0 errors and 0 warnings for Home and Schedule. The W3C CSS Validator still reports 2 errors and 10 warnings; these are disclosed as unresolved limitations.
+
+3. Responsive layout and media
+- The layout remains readable at narrow, medium and wide viewport sizes.
+- Images stay within their containers and preserve their proportions.
+- The page remains readable at 200% zoom without important content being clipped or overlapping.
+- Reduced-motion preferences are respected.
+Status: Responsive screenshots and prior zoom/reduced-motion evidence are included in testing-evidence/. The release report documents the tested sizes and results.
+
+4. Keyboard and accessibility checks
+- Keyboard users can reach navigation and page controls.
+- The “Skip to main content” link appears on the first Tab press and moves focus to the main content when activated.
+- Current-page navigation state and table header relationships are represented semantically.
+Status: The release report cites prior Module 5 evidence for the skip link, keyboard focus and Schedule table semantics. Do not treat the Lighthouse score alone as proof of every accessibility requirement.
+
+5. Discoverability and metadata
+- Home includes a title, meta description, canonical URL, Open Graph metadata and WebPage JSON-LD.
+- The site includes sitemap.xml and robots.txt.
+- Link text describes its destination or purpose.
+Status: Source review and the Lighthouse captures are documented in the release report. The captured final Lighthouse run reports SEO 100; scores may vary by environment.
+
+6. Performance and release limitations
+- Responsive image variants and appropriate loading behavior are used.
+- A performance diagnostic is recorded, including the captured Lighthouse result.
+- Remaining issues and untested browser coverage are disclosed honestly.
+Status: The release report documents a Lighthouse run with 100 in Performance, Accessibility, Best Practices and SEO, as well as the earlier run. It also records two unidentified console messages and states that Firefox and Edge were not tested in this release pass.
+
+7. Content accuracy
+- Event date and venue must not be presented as confirmed until they are known.
+Status: The current site documentation identifies these details as to be confirmed.
+
+Evidence sources
+- Focused Release Sprint report and evidence appendix (separate PDF submitted with this ZIP).
+- Screenshots in testing-evidence/.
+- Architecture_Notes.txt, Layout_Notes.txt, Optimization_Evidence.txt and Testing_Evidence_Previous.txt.

@@ -1,3 +1,5 @@
-AI Disclosure
+AI USE DISCLOSURE
 
-I only used AI to help check that everything was working correctly and that I met the assignment requirements. The work and final decisions are my own.
+I used AI only as a support tool to help organize the release checklist and project documentation and to review grammar and wording. I reviewed the project files and the available test evidence, checked the reported results against the code, screenshots, validator output, and Lighthouse captures, and made the final decisions myself.
+
+I accepted suggestions only when I could verify them against the project or its evidence. I did not treat AI suggestions as proof that a test had passed. The remaining CSS validator findings, unidentified console messages, and browsers not tested are documented as limitations rather than described as fixed. The final implementation choices, verification, and claims in this submission are my responsibility.
